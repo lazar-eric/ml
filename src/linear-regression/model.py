@@ -7,7 +7,7 @@ import matplotlib.pyplot as pyplot
 import pickle
 from matplotlib import style
 
-data = pd.read_csv('student-mat.csv', sep=";")
+data = pd.read_csv('student-data.csv', sep=";")
 
 data = data[["G1", "G2", "G3", "studytime", "failures", "absences"]]
 
@@ -25,25 +25,25 @@ x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y
 # for _ in range(40):
 #   x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.1)
 
-#   linear = linear_model.LinearRegression()
+#   model = linear_model.LinearRegression()
 
-#   linear.fit(x_train, y_train)
+#   model.fit(x_train, y_train)
 
-#   accuracy = linear.score(x_test, y_test)
+#   accuracy = model.score(x_test, y_test)
 
 #   if (accuracy > best):
-#     with open('studentmodel.pickle', 'wb') as f:
-#       pickle.dump(linear, f)
+#     with open('model.pickle', 'wb') as f:
+#       pickle.dump(model, f)
 
 #     best = accuracy
 
 #     print('Accuracy: ', best)
 
-saved_model = open('studentmodel.pickle', 'rb')
+saved_model = open('model.pickle', 'rb')
 
-linear = pickle.load(saved_model)
+model = pickle.load(saved_model)
 
-predictions = linear.predict(x_test)
+predictions = model.predict(x_test)
 
 for x in range(len(predictions)):
   print(predictions[x], x_test[x], y_test[x])
