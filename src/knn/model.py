@@ -30,6 +30,7 @@ x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y
 
 # best = 0
 
+# Uncomment to make, and save the model
 # for k in range(14):
 #   if (k == 0): continue
 
